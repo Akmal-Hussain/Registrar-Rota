@@ -21,7 +21,7 @@ import org.optaplanner.core.api.solver.event.BestSolutionChangedEvent;
 import org.optaplanner.core.api.solver.event.SolverEventListener;
 
 /**
- *
+ * does commit work
  * @author dakhussain
  */
 public class RunRota extends SwingWorker <ShiftList,ShiftScore> {
