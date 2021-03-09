@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<Registrars>
+    <Registrar>
+        <Name>Registrar 1</Name>
+        <FileName>Resources/Data/Registrar_1.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 2</Name>
+        <FileName>Resources/Data/Registrar_2.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 3</Name>
+        <FileName>Resources/Data/Registrar_3.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 4</Name>
+        <FileName>Resources/Data/Registrar_4.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 5</Name>
+        <FileName>Resources/Data/Registrar_5.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 6</Name>
+        <FileName>Resources/Data/Registrar_6.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 7</Name>
+        <FileName>Resources/Data/Registrar_7.xml</FileName>
+    </Registrar>
+ <Registrar>
+        <Name>Registrar 8</Name>
+        <FileName>Resources/Data/Registrar_8.xml</FileName>
+    </Registrar>
+    
+    <Registrar>
+        <Name>Registrar 9</Name>
+        <FileName>Resources/Data/Registrar_9.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 10</Name>
+        <FileName>Resources/Data/Registrar_10.xml</FileName>
+    </Registrar>
+    <Registrar>
+        <Name>Registrar 11</Name>
+        <FileName>Resources/Data/Registrar_11.xml</FileName>
+    </Registrar>
+   
+</Registrars>

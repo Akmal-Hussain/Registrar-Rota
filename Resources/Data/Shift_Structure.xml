@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<Outline>
+    <WeekDays>
+            <Shift>Paed
+                <Hours>8</Hours>
+            </Shift>
+            <Shift>Neo
+            <Hours>8</Hours>
+            </Shift>
+            <Shift>Comm
+            <Hours>8</Hours>
+            </Shift>
+            <Shift>ED
+            <Hours>12</Hours>
+            </Shift>
+            <Shift>LD
+            <Hours>4.5</Hours>
+            </Shift>
+            
+            <Shift>Obs Bay
+            <Hours>10</Hours>
+            </Shift>
+            <Shift>A/L
+            <Hours>8</Hours>
+            </Shift>
+            <Shift>S/L
+            <Hours>8</Hours>
+            </Shift>
+            <Shift>Night
+            <Hours>12.5</Hours>
+            </Shift>
+    </WeekDays>
+    <WeekEnds>
+        <Shift>LD
+        <Hours>12.5</Hours>
+        </Shift>
+        <Shift>ED
+        <Hours>12</Hours>
+        </Shift>
+        <Shift>Obs Bay
+        <Hours>8</Hours>
+        </Shift>
+        <Shift>Night
+        <Hours>8</Hours>
+        </Shift>
+    </WeekEnds>
+</Outline>

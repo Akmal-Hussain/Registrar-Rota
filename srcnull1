@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consultant>
+    <Name> Kemy Naidoo </Name>
+    <Dates_Of_Leave/>
+    <FullOrPartTime>Full
+        <Factor>1.0</Factor>
+        <DaysWorking>
+            <WeekDay>MONDAY</WeekDay>
+            <WeekDay>WEDNESDAY</WeekDay>
+            <WeekDay>THURSDAY</WeekDay>
+        </DaysWorking>
+    </FullOrPartTime>
+    <Types_Of_Work>
+        <Week_Work>
+            <Type>COW</Type>
+            <Type>NOW</Type>
+        </Week_Work>
+        <Weekend_Work>
+            <Type>COW</Type>
+            <Type>NOW</Type>
+        </Weekend_Work>
+        <OnCalls>
+            <Type>Paed</Type>
+            <Type>Neo</Type>
+        </OnCalls>
+    </Types_Of_Work>
+    <Balance_Last_Rota>
+        <OnCalls>0.0</OnCalls>
+        <COW_Week>0.0</COW_Week>
+        <NOW_Week>0.0</NOW_Week>
+        <COW_Weekend>0.0</COW_Weekend>
+        <NOW_Weekend>0.0</NOW_Weekend>
+    </Balance_Last_Rota>
+</Consultant>
