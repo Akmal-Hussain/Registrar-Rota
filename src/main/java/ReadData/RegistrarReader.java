@@ -38,14 +38,27 @@ public class RegistrarReader implements Serializable {
     double NOW_WeekendTarget;
     double onCallsTarget;
 
+    TypeOfWorking type;
+    
+    int max_Hours;
+    int min_Hours;
 
-         
-    
-      
-    
-    TypeOfWorking weekdays;
-    
-   
+    LocalDate[][] leaveDatesArray;
+    List<LocalDate[]> leaveDatesList;
+
+    List <DayOfWeek> daysWorkingList;
+    List<LocalDate> leaveDates;
+
+    DayOfWeek[] daysWorking;
+
+    HashMap<String, Double> balance = new HashMap<>();
+
+    FullOrPartTime fullOrPartTime;
+
+    Double factor;
+
+
+
     public RegistrarReader(String fileName) {
         try {
             Builder builder = new Builder();
@@ -64,7 +77,7 @@ public class RegistrarReader implements Serializable {
             //populate array of Leave Dates
             leaveDatesArray = new LocalDate[blocks.size()][2];
             leaveDatesList = new ArrayList<>();
-            
+
             int y = 0;
             for (Element block : blocks) {
                 String date = "From";
@@ -115,57 +128,42 @@ public class RegistrarReader implements Serializable {
                 daysWorking[z] = DayOfWeek.valueOf(weekday.getValue().toUpperCase());
                 z++;
             }
-            
+
             Arrays.sort(daysWorking);
             daysWorkingList = new ArrayList<>(Arrays.asList(daysWorking));
             // COW or NOW and OnCalls
             Element typeOfWorking = root.getFirstChildElement("Types_Of_Work");
+            String typeOFWorking = typeOfWorking.getValue();
 
-            // Type of Working During the Week and Weekends         
-            String[] times = {"Week_Work", "Weekend_Work", "OnCalls"};
-            for (String time : times) {
-                Elements weekWork = typeOfWorking.getFirstChildElement(time).getChildElements();
-                boolean weekCOW = false;
-                boolean weekNOW = false;
+            // Type of Working During the Week and Weekends
 
-                for (Element week : weekWork) {
-                    if (week.getValue().equals("COW") || week.getValue().equals("Paed")) {
-                        weekCOW = true;
-                    }
-                    if (week.getValue().equals("NOW") || week.getValue().equals("Neo")) {
-                        weekNOW = true;
-                    }
-                }
-                TypeOfWorking temp;
 
-                if (weekCOW && weekNOW) {
-                    temp = TypeOfWorking.Both;
-                } else {
-                    if (weekCOW) {
-                        temp = TypeOfWorking.Paeds;
-                    } else {
-                        temp = TypeOfWorking.Neo;
-                    }
-                }
-                switch (time) {
-                    case ("Week_Work"):
-                        weekdays = temp;
+                switch (typeOFWorking) {
+                    case ("Paediatrics"):
+                        type = TypeOfWorking.Paeds;
                         break;
-                    case ("Weekend_Work"):
-                        weekends = temp;
+                    case ("Neonates"):
+                        type = TypeOfWorking.Neo;
                         break;
-                    case ("OnCalls"):
-                        onCalls = temp;
+                    case ("Community"):
+                        type = TypeOfWorking.Comm;
                         break;
                 }
-            }
 
+            Element hours = root.getFirstChildElement("Hours");
+            String maxHours = hours.getFirstChildElement("Max").getValue();
+            max_Hours = Integer.parseInt(maxHours);
+            String minHours = hours.getFirstChildElement("Min").getValue();
+            min_Hours = Integer.parseInt(minHours);
+/*
             Element balAnce = root.getFirstChildElement("Balance_Last_Rota");
             Elements balances = balAnce.getChildElements();
             for (Element type : balances) {
                 balance.put(type.getLocalName(), Double.valueOf(type.getValue()));
             }
-           
+*/
+
+
         } catch (ParsingException | IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -201,7 +199,6 @@ public class RegistrarReader implements Serializable {
         onCalls = t;
     }
     
-    HashMap<String, Double> balance = new HashMap<>();
 
     public HashMap<String, Double> getBalance() {
         return balance;
@@ -254,8 +251,7 @@ public class RegistrarReader implements Serializable {
 public String getConsultantName() {
         return registrarName;
     }
-    LocalDate[][] leaveDatesArray;
-    List<LocalDate[]> leaveDatesList;
+
     
     public List<LocalDate[]> getLeaveDatesList(){
         return leaveDatesList;
@@ -264,9 +260,7 @@ public String getConsultantName() {
     public LocalDate[][] getLeaveDatesArray() {
         return leaveDatesArray;
     }
-    FullOrPartTime fullOrPartTime;
-    
-    Double factor;
+
     
     public double getFactor(){
         return factor;
@@ -284,13 +278,11 @@ public String getConsultantName() {
         fullOrPartTime = t;
     }
     
-    DayOfWeek[] daysWorking;
+
 
     public List<DayOfWeek> getDaysWorkingList() {
         return daysWorkingList;
     }
-    List <DayOfWeek> daysWorkingList;
-    List<LocalDate> leaveDates;
 
     public List<LocalDate> getLeaveDates() {
         return leaveDates;
